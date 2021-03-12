@@ -4,7 +4,7 @@ printf "\n\n"
 echo "# Open Policy Agent"
 /opa version
 printf "\n\n"
-
+ls ${GITHUB_WORKSPACE}
 IFS=';'
 mapfile -t lines < <(echo "$INPUT_TESTS" | grep -v "^$")
 

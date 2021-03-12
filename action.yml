@@ -9,6 +9,10 @@ inputs:
     description: "Rego file or directory path where to discover tests. Defaults to repository root."
     required: false
     default: ./
+  policy:
+    description: "Rego file or directory path where to discover tests. Defaults to repository root."
+    required: false
+    default: ./
   options:
     description: "Additional OPA command line flags. Example: `--verbose --timeout 3`. See `opa test --help` for more."
     required: false

@@ -12,7 +12,8 @@ e_code=0
 for line in "${lines[@]}"; do
   read -r -a args <<< "$line"
   # cmd="/opa eval ${args[@]} $INPUT_OPTIONS"
-  cmd="/opa eval -i $INPUT_POLICY -d $INPUT_TESTS "data.panos[x]" --format pretty"
+  # cmd="/opa eval -i $INPUT_POLICY -d $INPUT_TESTS "data.panos[x]" --format pretty"
+  cmd="/opa eval -i ${GITHUB_WORKSPACE}/policy.yml -d  ${GITHUB_WORKSPACE}/tests/panos.rego "data.panos[x]" --format pretty"
   echo " 🚀 Running: $cmd"
   printf "\n"
   # echo " 🚀 Running: $1 $2 $INPUT_POLICY"

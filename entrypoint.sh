@@ -13,7 +13,7 @@ for line in "${lines[@]}"; do
   # cmd=`/opa eval -i ${GITHUB_WORKSPACE}/$INPUT_POLICY -d  ${GITHUB_WORKSPACE}/$INPUT_TESTS "data.panos" --format json`
   cmd=`/opa eval -i ${GITHUB_WORKSPACE}/$INPUT_POLICY -d  ${GITHUB_WORKSPACE}/$INPUT_TESTS "data.panos"`
   eval_output=$(echo $cmd)
-  # echo " 🚀 Running: $cmd"
+  echo " 🚀 Result: $eval_output"
   # printf "\n"
   # eval "$cmd" || e_code=1
   # opa_results=$(cmd)

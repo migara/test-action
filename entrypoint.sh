@@ -12,13 +12,20 @@ for line in "${lines[@]}"; do
   read -r -a args <<< "$line"
   # cmd=`/opa eval -i ${GITHUB_WORKSPACE}/$INPUT_POLICY -d  ${GITHUB_WORKSPACE}/$INPUT_TESTS "data.panos" --format json`
   cmd=`/opa eval -i ${GITHUB_WORKSPACE}/$INPUT_POLICY -d  ${GITHUB_WORKSPACE}/$INPUT_TESTS "data.panos"`
+  eval_output=$(echo $cmd)
   # echo " 🚀 Running: $cmd"
   # printf "\n"
   # eval "$cmd" || e_code=1
   # opa_results=$(cmd)
   # echo $opa_results
   # echo "::set-output name=opa_results::$opa_results"
-  echo "::set-output name=opa_results::$(echo $cmd)"
+
+  # https://github.community/t5/GitHub-Actions/set-output-Truncates-Multiline-Strings/m-p/38372/highlight/true#M3322
+  eval_output="${eval_output//'%'/'%25'}"
+  eval_output="${eval_output//$'\n'/'%0A'}"
+  eval_output="${eval_output//$'\r'/'%0D'}"
+
+  echo "::set-output name=opa_results::${eval_output}"
   # echo "::set-output name=opa_results::foo"
   # printf "\n\n"
 done

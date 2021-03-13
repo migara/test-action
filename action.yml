@@ -16,6 +16,9 @@ inputs:
   options:
     description: "Additional OPA command line flags. Example: `--verbose --timeout 3`. See `opa test --help` for more."
     required: false
+outputs:
+  opa_results: # id of output
+    description: 'OPA result'
 runs:
   using: docker
   image: Dockerfile

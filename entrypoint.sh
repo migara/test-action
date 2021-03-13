@@ -17,7 +17,7 @@ for line in "${lines[@]}"; do
   opa_results=$(cmd)
   echo $opa_results
   # echo "::set-output name=opa_results::$opa_results"
-  echo "::set-output name=opa_results::$(echo $opa_results)"
+  echo "::set-output name=opa_results::$(echo $cmd)"
   printf "\n\n"
 done
 

@@ -10,7 +10,8 @@ mapfile -t lines < <(echo "$INPUT_TESTS" | grep -v "^$")
 e_code=0
 for line in "${lines[@]}"; do
   read -r -a args <<< "$line"
-  cmd=`/opa eval -i ${GITHUB_WORKSPACE}/$INPUT_POLICY -d  ${GITHUB_WORKSPACE}/$INPUT_TESTS "data.panos" --format json`
+  # cmd=`/opa eval -i ${GITHUB_WORKSPACE}/$INPUT_POLICY -d  ${GITHUB_WORKSPACE}/$INPUT_TESTS "data.panos" --format json`
+  cmd=`/opa eval -i ${GITHUB_WORKSPACE}/$INPUT_POLICY -d  ${GITHUB_WORKSPACE}/$INPUT_TESTS "data.panos"`
   # echo " 🚀 Running: $cmd"
   # printf "\n"
   # eval "$cmd" || e_code=1
